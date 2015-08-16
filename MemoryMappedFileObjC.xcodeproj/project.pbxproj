@@ -13,6 +13,7 @@
 		05F548BE1B800F0A00EE5E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05F548BC1B800F0A00EE5E6F /* Main.storyboard */; };
 		05F548C01B800F0A00EE5E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F548BF1B800F0A00EE5E6F /* Assets.xcassets */; };
 		05F548C31B800F0A00EE5E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05F548C11B800F0A00EE5E6F /* LaunchScreen.storyboard */; };
+		05F548CC1B800F3400EE5E6F /* MemoryMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F548CB1B800F3400EE5E6F /* MemoryMappedFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		05F548BF1B800F0A00EE5E6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05F548C21B800F0A00EE5E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05F548C41B800F0A00EE5E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05F548CA1B800F3400EE5E6F /* MemoryMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryMappedFile.h; sourceTree = "<group>"; };
+		05F548CB1B800F3400EE5E6F /* MemoryMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryMappedFile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				05F548C11B800F0A00EE5E6F /* LaunchScreen.storyboard */,
 				05F548C41B800F0A00EE5E6F /* Info.plist */,
 				05F548B31B800F0A00EE5E6F /* Supporting Files */,
+				05F548CA1B800F3400EE5E6F /* MemoryMappedFile.h */,
+				05F548CB1B800F3400EE5E6F /* MemoryMappedFile.m */,
 			);
 			path = MemoryMappedFileObjC;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05F548BB1B800F0A00EE5E6F /* ViewController.m in Sources */,
+				05F548CC1B800F3400EE5E6F /* MemoryMappedFile.m in Sources */,
 				05F548B81B800F0A00EE5E6F /* AppDelegate.m in Sources */,
 				05F548B51B800F0A00EE5E6F /* main.m in Sources */,
 			);
