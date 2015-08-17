@@ -59,7 +59,7 @@
     }
     
     // Map the file as read only pages.
-    baseAddress = mmap(NULL, buffer.st_size, PROT_READ,MAP_SHARED, file, 0);
+    baseAddress = mmap(NULL, (unsigned long)buffer.st_size, PROT_READ,MAP_SHARED, file, 0);
     if (baseAddress == MAP_FAILED) {
         perror("mmap");
         close(file);

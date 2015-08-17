@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058FFAE91B8169B100BBFA23 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058FFAE81B8169B100BBFA23 /* TableViewController.m */; };
 		05F548B51B800F0A00EE5E6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F548B41B800F0A00EE5E6F /* main.m */; };
 		05F548B81B800F0A00EE5E6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F548B71B800F0A00EE5E6F /* AppDelegate.m */; };
-		05F548BB1B800F0A00EE5E6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F548BA1B800F0A00EE5E6F /* ViewController.m */; };
 		05F548BE1B800F0A00EE5E6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05F548BC1B800F0A00EE5E6F /* Main.storyboard */; };
 		05F548C01B800F0A00EE5E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F548BF1B800F0A00EE5E6F /* Assets.xcassets */; };
 		05F548C31B800F0A00EE5E6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05F548C11B800F0A00EE5E6F /* LaunchScreen.storyboard */; };
@@ -17,12 +17,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		058FFAE71B8169B100BBFA23 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		058FFAE81B8169B100BBFA23 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		05F548B01B800F0A00EE5E6F /* MemoryMappedFileObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryMappedFileObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F548B41B800F0A00EE5E6F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05F548B61B800F0A00EE5E6F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05F548B71B800F0A00EE5E6F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05F548B91B800F0A00EE5E6F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		05F548BA1B800F0A00EE5E6F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		05F548BD1B800F0A00EE5E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05F548BF1B800F0A00EE5E6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05F548C21B800F0A00EE5E6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,8 +63,6 @@
 			children = (
 				05F548B61B800F0A00EE5E6F /* AppDelegate.h */,
 				05F548B71B800F0A00EE5E6F /* AppDelegate.m */,
-				05F548B91B800F0A00EE5E6F /* ViewController.h */,
-				05F548BA1B800F0A00EE5E6F /* ViewController.m */,
 				05F548BC1B800F0A00EE5E6F /* Main.storyboard */,
 				05F548BF1B800F0A00EE5E6F /* Assets.xcassets */,
 				05F548C11B800F0A00EE5E6F /* LaunchScreen.storyboard */,
@@ -72,6 +70,8 @@
 				05F548B31B800F0A00EE5E6F /* Supporting Files */,
 				05F548CA1B800F3400EE5E6F /* MemoryMappedFile.h */,
 				05F548CB1B800F3400EE5E6F /* MemoryMappedFile.m */,
+				058FFAE71B8169B100BBFA23 /* TableViewController.h */,
+				058FFAE81B8169B100BBFA23 /* TableViewController.m */,
 			);
 			path = MemoryMappedFileObjC;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05F548BB1B800F0A00EE5E6F /* ViewController.m in Sources */,
 				05F548CC1B800F3400EE5E6F /* MemoryMappedFile.m in Sources */,
 				05F548B81B800F0A00EE5E6F /* AppDelegate.m in Sources */,
+				058FFAE91B8169B100BBFA23 /* TableViewController.m in Sources */,
 				05F548B51B800F0A00EE5E6F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +267,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemoryMappedFileObjC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gnos.us.MemoryMappedFileObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -278,7 +280,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemoryMappedFileObjC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gnos.us.MemoryMappedFileObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +308,7 @@
 				05F548C91B800F0A00EE5E6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

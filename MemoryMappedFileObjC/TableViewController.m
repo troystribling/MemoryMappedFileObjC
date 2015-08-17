@@ -1,31 +1,33 @@
 //
-//  ViewController.m
+//  TableViewController.m
 //  MemoryMappedFileObjC
 //
-//  Created by Troy Stribling on 8/15/15.
+//  Created by Troy Stribling on 8/16/15.
 //  Copyright © 2015 Troy Stribling. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface ViewController ()
-
-@end
+#import "TableViewController.h"
 
 static NSString* filePath = @"data.bin";
-static const UInt64 rows = 10;
+static const UInt64 rows = 100;
 
 typedef struct {
     UInt64 i;
     char buffer[40];
 } Data;
 
-@implementation ViewController
+@interface TableViewController ()
+
+@end
+
+@implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.rowsLabel.text = [[NSNumber numberWithUnsignedLongLong:rows] stringValue];
     if ([self fileExists]) {
         NSLog(@"%@ exists", [self filePath]);
+        self.fileStatusLabel.text = @"Exists";
         [self printDataFile];
     } else {
         NSLog(@"%@ does not exist", [self filePath]);
@@ -36,6 +38,8 @@ typedef struct {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark - Table view data source
 
 - (BOOL)fileExists {
     NSFileManager* fileMgr = [NSFileManager defaultManager];
@@ -48,6 +52,7 @@ typedef struct {
 }
 
 - (void)createDataFile {
+    self.fileStatusLabel.text = @"Creating";
     NSFileManager* fileManager = [NSFileManager defaultManager];
     if (![fileManager createFileAtPath:[self filePath] contents:nil attributes:nil]) {
         NSLog(@"File create failed");
@@ -66,6 +71,7 @@ typedef struct {
         NSData* rowData = [NSData dataWithBytes:&row length:sizeof(row)];
         [file writeData:rowData];
     }
+    self.fileStatusLabel.text = @"Exists";
     [file closeFile];
 }
 
