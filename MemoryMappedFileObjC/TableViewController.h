@@ -13,5 +13,7 @@
 
 @property(nonatomic, retain) IBOutlet UILabel*  fileStatusLabel;
 @property(nonatomic, retain) IBOutlet UILabel*  rowsLabel;
+@property(nonatomic, retain) IBOutlet UILabel*  fileSizeLabel;
+@property(nonatomic, retain) IBOutlet UILabel*  rowSizeLabel;
 
 @end

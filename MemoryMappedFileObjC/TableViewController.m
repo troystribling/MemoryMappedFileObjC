@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "MemoryMappedFile.h"
 
 static NSString* filePath = @"data.bin";
 static const UInt64 rows = 100;
@@ -18,6 +19,9 @@ typedef struct {
 
 @interface TableViewController ()
 
+@property(nonatomic, retain) MemoryMappedFile* mmFile;
+@property(nonatomic) void* mmData;
+
 @end
 
 @implementation TableViewController
@@ -25,13 +29,24 @@ typedef struct {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.rowsLabel.text = [[NSNumber numberWithUnsignedLongLong:rows] stringValue];
-    if ([self fileExists]) {
+    if (![self fileExists]) {
+        NSLog(@"%@ does not exist", [self filePath]);
+        self.fileStatusLabel.text = @"Creating";
+        [self createDataFile];
+    } else {
         NSLog(@"%@ exists", [self filePath]);
         self.fileStatusLabel.text = @"Exists";
-        [self printDataFile];
+    }
+    self.mmFile = [[MemoryMappedFile alloc] initWithPath:[self filePath]];
+    if (self.mmFile ) {
+        self.mmData = [self.mmFile map];
+        self.fileStatusLabel.text = @"Mapped";
+        self.rowSizeLabel.text = [NSString stringWithFormat:@"%lu", sizeof(Data)];
+        self.rowsLabel.text = [NSString stringWithFormat:@"%lu", [self.mmFile size]/sizeof(Data)];
+        self.fileSizeLabel.text = [NSString stringWithFormat:@"%lu", [self.mmFile size]];
+        [self printMemoryMappedFile];
     } else {
-        NSLog(@"%@ does not exist", [self filePath]);
-        [self createDataFile];
+        NSLog(@"Error mapping file");
     }
 }
 
@@ -52,7 +67,6 @@ typedef struct {
 }
 
 - (void)createDataFile {
-    self.fileStatusLabel.text = @"Creating";
     NSFileManager* fileManager = [NSFileManager defaultManager];
     if (![fileManager createFileAtPath:[self filePath] contents:nil attributes:nil]) {
         NSLog(@"File create failed");
@@ -86,6 +100,23 @@ typedef struct {
         NSData* rowData = [file readDataOfLength:sizeof(row)];
         [rowData getBytes:&row length:sizeof(row)];
         NSLog(@"i=%llu, buffer=%s, buffer size=%lu", row.i, row.buffer, strlen(row.buffer));
+    }
+    
+}
+
+- (void)printMemoryMappedFile {
+    Data *row;
+    if (self.mmFile) {
+        UInt64 rowSize = sizeof(Data);
+        UInt64 nrows = self.mmFile.size / rowSize;
+        NSLog(@"File size: %lu, rowSize:%llu, nrows:%llu", (unsigned long)self.mmFile.size, rowSize, nrows);
+        for (UInt64 i = 0; i < nrows; i++) {
+            NSLog(@"row number:%llu", i);
+            row = (Data*)(self.mmData + i * rowSize);
+            NSLog(@"i=%llu, buffer=%s, buffer size=%lu", row->i, row->buffer, strlen(row->buffer));
+        }
+    } else {
+        NSLog(@"Error mapping file");
     }
     
 }
